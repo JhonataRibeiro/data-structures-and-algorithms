@@ -18,16 +18,20 @@ int main()
 {
     No *arvore_A = NULL;
     criarArvore(&arvore_A);
-    inserir(&arvore_A, 5);
-    inserir(&arvore_A, 4);
-    inserir(&arvore_A, 3);
     inserir(&arvore_A, 10);
-    inserir(&arvore_A, 9);
-    inserir(&arvore_A, 12);
+    inserir(&arvore_A, 8);
     inserir(&arvore_A, 14);
-    inserir(&arvore_A, 17);
-    inserir(&arvore_A, 20);
+    inserir(&arvore_A, 15);
+    inserir(&arvore_A, 11);
+    inserir(&arvore_A, 7);
+    inserir(&arvore_A, 9);
+    inserir(&arvore_A, 6);
+    printf("Em ordem: ");
     exibirEmOrdem(arvore_A);
+    printf("Em pré ordem: ");
+    exibirEmPreOrdem(arvore_A);
+    printf("Em pos ordem: ");
+    exibirEmPosOrdem(arvore_A);
     exit(1);
 }
 
@@ -67,10 +71,25 @@ void inserir(No **pRaiz, int numero)
 }
 
 void exibirEmOrdem(No *pRaiz){  
-    printf("%d\n",pRaiz != NULL);  
     if(pRaiz != NULL){
         exibirEmOrdem(pRaiz->esquerda);
-        printf("\n%d", pRaiz -> numero);
+        printf("\n%d\n", pRaiz -> numero);
         exibirEmOrdem(pRaiz->direita);
+    }
+}
+
+void exibirEmPreOrdem(No *pRaiz){
+    if(pRaiz != NULL){
+        printf("\n%d\n", pRaiz -> numero);
+        exibirEmPreOrdem(pRaiz->esquerda);
+        exibirEmPreOrdem(pRaiz->direita);
+    }
+}
+
+void exibirEmPosOrdem(No *pRaiz){
+    if(pRaiz != NULL){
+        exibirEmPosOrdem(pRaiz->esquerda);
+        exibirEmPosOrdem(pRaiz->direita);
+        printf("\n%d\n", pRaiz -> numero);
     }
 }
