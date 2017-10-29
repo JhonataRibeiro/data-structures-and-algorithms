@@ -38,9 +38,7 @@ int main()
  */
 void criarArvore(No **pRaiz)
 {
-    printf("Endereço da Raiz ==>  %d", *pRaiz);
     *pRaiz = NULL;
-    printf("\n Atribui NULL ao endereço da Raiz ==> %d", *pRaiz);
 }
 
 void inserir(No **pRaiz, int numero)
@@ -48,10 +46,8 @@ void inserir(No **pRaiz, int numero)
     /**
      * Se pRaiz for null, minha arvore está vazia
      */
-    printf("\n  É null? %d", *pRaiz);
     if (*pRaiz == NULL)
     {
-        printf("\n É nulo, inserir valor %d", numero);
         *pRaiz = (No *)malloc(sizeof(No));
         (*pRaiz)->esquerda = NULL;
         (*pRaiz)->direita = NULL;
@@ -61,12 +57,10 @@ void inserir(No **pRaiz, int numero)
     {
         if (numero < (*pRaiz)->numero)
         {
-            printf("\n Inserir %d a esquerda", numero);
             inserir(&(*pRaiz)->esquerda, numero);
         }
         else
         {
-            printf("\n Inserir %d a direita", numero);
             inserir(&(*pRaiz)->direita, numero);
         }
     }
@@ -75,11 +69,8 @@ void inserir(No **pRaiz, int numero)
 void exibirEmOrdem(No *pRaiz){  
     printf("%d\n",pRaiz != NULL);  
     if(pRaiz != NULL){
-        printf("1\n");
         exibirEmOrdem(pRaiz->esquerda);
-        printf("2\n");
         printf("\n%d", pRaiz -> numero);
-        printf("3\n");
         exibirEmOrdem(pRaiz->direita);
     }
 }
